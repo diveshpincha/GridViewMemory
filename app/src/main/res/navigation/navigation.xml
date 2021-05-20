@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/titleFragment">
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.gridviewmemory.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <argument
+            android:name="level"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_gameFragment_to_winFragment"
+            app:destination="@id/winFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_loseFragment"
+            app:destination="@id/loseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.example.gridviewmemory.TitleFragment"
+        android:label="fragment_title"
+        tools:layout="@layout/fragment_title" >
+        <action
+            android:id="@+id/action_titleFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/winFragment"
+        android:name="com.example.gridviewmemory.WinFragment"
+        android:label="WinFragment" />
+    <fragment
+        android:id="@+id/loseFragment"
+        android:name="com.example.gridviewmemory.LoseFragment"
+        android:label="LoseFragment" />
+</navigation>
