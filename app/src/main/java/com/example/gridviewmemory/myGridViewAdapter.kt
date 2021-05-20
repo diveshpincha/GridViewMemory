@@ -5,10 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
-import android.widget.RelativeLayout
 
 class MyGridViewAdapter internal constructor(context: Context) : BaseAdapter() {
-    private val context: Context
+    private val context: Context = context
     private var drawables: List<Int>? = null
     fun setDrawables(drawables: List<Int>?) {
         this.drawables = drawables
@@ -32,14 +31,9 @@ class MyGridViewAdapter internal constructor(context: Context) : BaseAdapter() {
 
         val imageView = ImageView(context)
         imageView.setImageResource(R.drawable.ic_android_black_24dp)
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP)
-        imageView.setLayoutParams(
-            RelativeLayout.LayoutParams(270 , 200 )
-        )
+        imageView.scaleType = ImageView.ScaleType.CENTER_CROP
+        imageView.layoutParams = ViewGroup.LayoutParams(270 , 200 )
         return imageView
     }
 
-    init {
-        this.context = context
-    }
 }
